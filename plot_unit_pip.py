@@ -1,3 +1,4 @@
+import os
 import matplotlib
 matplotlib.use('TkAgg')  # Ensure interactive backend
 import pandas as pd
@@ -5,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the data
-df = pd.read_csv('unit_pip_summary.csv')
+df = pd.read_csv(os.path.dirname(__file__)+'/unit_pip_summary.csv')
 
 # Remove rows with missing or non-numeric year or total_pips
 df = df[pd.to_numeric(df['year'], errors='coerce').notnull()]
